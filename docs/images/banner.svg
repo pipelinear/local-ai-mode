@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="Local AI Mode — one click to give Ollama your Mac">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#140c2e"/>
+      <stop offset="0.55" stop-color="#1b1446"/>
+      <stop offset="1" stop-color="#0b1a3d"/>
+    </linearGradient>
+    <linearGradient id="icon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8c4df2"/>
+      <stop offset="1" stop-color="#3373fa"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c9b8ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8c4df2" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#8c4df2" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="400" rx="28" fill="url(#bg)"/>
+  <rect width="1280" height="400" rx="28" fill="url(#grid)"/>
+
+  <!-- memory bars motif -->
+  <g opacity="0.35">
+    <rect x="900" y="320" width="34" height="30" rx="6" fill="#3373fa"/>
+    <rect x="946" y="305" width="34" height="45" rx="6" fill="#3373fa"/>
+    <rect x="992" y="312" width="34" height="38" rx="6" fill="#3373fa"/>
+    <rect x="1038" y="290" width="34" height="60" rx="6" fill="#8c4df2"/>
+    <rect x="1084" y="278" width="34" height="72" rx="6" fill="#8c4df2"/>
+    <rect x="1130" y="266" width="34" height="84" rx="6" fill="#8c4df2"/>
+    <rect x="1176" y="254" width="34" height="96" rx="6" fill="#b48cff"/>
+  </g>
+
+  <!-- app icon -->
+  <circle cx="190" cy="200" r="150" fill="url(#glow)"/>
+  <rect x="100" y="110" width="180" height="180" rx="42" fill="url(#icon)"/>
+  <rect x="100" y="110" width="180" height="180" rx="42" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M203 138 L150 214 H186 L172 262 L232 182 H194 Z" fill="#ffffff"/>
+
+  <!-- text -->
+  <text x="330" y="182" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="72" font-weight="800" fill="url(#title)" letter-spacing="-1.5">Local AI Mode</text>
+  <text x="333" y="232" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="27" font-weight="500" fill="#d8d0f5">One click to give Ollama your Mac. One click to get it back.</text>
+
+  <!-- pills -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="600">
+    <rect x="333" y="270" width="150" height="38" rx="19" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="408" y="295" text-anchor="middle" fill="#ffffff">Native SwiftUI</text>
+    <rect x="495" y="270" width="150" height="38" rx="19" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="570" y="295" text-anchor="middle" fill="#ffffff">Apple Silicon</text>
+    <rect x="657" y="270" width="132" height="38" rx="19" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="723" y="295" text-anchor="middle" fill="#ffffff">100% local</text>
+  </g>
+</svg>

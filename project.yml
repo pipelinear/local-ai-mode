@@ -1,0 +1,55 @@
+name: LocalAIMode
+options:
+  bundleIdPrefix: com.localaimode
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+    ARCHS: arm64
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+targets:
+  LocalAIMode:
+    type: application
+    platform: macOS
+    sources:
+      - path: LocalAIMode
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.localaimode.LocalAIMode
+        PRODUCT_NAME: Local AI Mode
+        INFOPLIST_FILE: LocalAIMode/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: LocalAIMode/Resources/LocalAIMode.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        COMBINE_HIDPI_IMAGES: YES
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+  LocalAIModeTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: LocalAIModeTests
+    dependencies:
+      - target: LocalAIMode
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.localaimode.LocalAIModeTests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Local AI Mode.app/Contents/MacOS/Local AI Mode"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  LocalAIMode:
+    build:
+      targets:
+        LocalAIMode: all
+        LocalAIModeTests: [test]
+    test:
+      targets:
+        - LocalAIModeTests
