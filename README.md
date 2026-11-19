@@ -71,23 +71,24 @@
 ## 🧠 How it works
 
 ```mermaid
-flowchart LR
-    A([Normal Mode]) -->|Enable| B[Review apps]
-    B -->|Confirm| C[Save snapshot<br/>to journal]
-    C --> D[Graceful quit<br/>⏱ timeout, never force]
-    D --> E[Power settings<br/>+ sleep assertion]
-    E --> F[Start Ollama]
-    F --> G[Load model]
-    G --> H{Verified in<br/>/api/ps?}
-    H -->|yes| I([⚡ AI Mode])
+flowchart TB
+    subgraph ON["⚡ Enable"]
+        direction LR
+        B[Review apps] --> C[Save snapshot<br/>to journal] --> D[Graceful quit<br/>never forced] --> E[Power settings<br/>+ sleep assertion] --> F[Start Ollama] --> G[Load model] --> H{In /api/ps?}
+    end
+    subgraph OFF["🔄 Disable"]
+        direction LR
+        J[Unload models] --> V[Verify released] --> K[Restore power] --> L[Reopen apps<br/>& documents] --> R[Report anything<br/>not restored]
+    end
+    A([Normal Mode]) --> B
+    H -->|yes| I([AI Mode on])
     H -->|no| X[Clear error + Retry] --> I
-    I -->|Disable| J[Unload models]
-    J --> K[Restore power]
-    K --> L[Reopen apps & docs]
-    L --> A
+    I --> J
+    R --> A2([Normal Mode])
 
     style I fill:#8c4df2,color:#fff,stroke:#6a2fd0
     style A fill:#2b2b33,color:#fff,stroke:#555
+    style A2 fill:#2b2b33,color:#fff,stroke:#555
 ```
 
 Every step is written atomically to a local **session journal** *before* it happens. If the Mac, the app or Ollama dies halfway through, the next launch offers **Restore Previous Workspace** or **Resume AI Mode**. Nothing closes or changes until you choose.
